@@ -30,6 +30,7 @@ buttons[0].addEventListener('click',function(){
 });
 buttons[1].addEventListener('click',function(){
     display.textContent = (display.textContent).slice(0,-1);
+    output.textContent = eval(display.textContent);
 });
 
 buttons[18].addEventListener('click',function(){
