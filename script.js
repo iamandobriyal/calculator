@@ -29,8 +29,15 @@ buttons[0].addEventListener('click',function(){
     output.textContent = "";
 });
 buttons[1].addEventListener('click',function(){
-    display.textContent = (display.textContent).slice(0,-1);
-    output.textContent = eval(display.textContent);
+    if(display.textContent == "")
+    {
+        output.textContent="";
+    }
+    else{
+        display.textContent = (display.textContent).slice(0,-1);
+        output.textContent = eval(display.textContent);
+    }
+  
 });
 
 buttons[18].addEventListener('click',function(){
