@@ -14,9 +14,11 @@ for(let i=0; i<buttons.length; i++)
         if(i==7)
         {
             display.textContent = display.textContent+"*";
+            output.textContent = eval(display.textContent);
         }
         else{
             display.textContent = display.textContent+buttons[i].textContent
+            output.textContent = eval(display.textContent);
         }
         
     });
@@ -31,7 +33,8 @@ buttons[1].addEventListener('click',function(){
 });
 
 buttons[18].addEventListener('click',function(){
-    output.textContent = eval(display.textContent);
+    display.textContent = output.textContent;
+    output.textContent = "";
 });
 let k=0;
 
