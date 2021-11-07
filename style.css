@@ -117,12 +117,12 @@ button:hover{
         height: 96vh;
     }
     calculator{
-        height: 520px;
-        width: 280px;
+        height: 600px;
+        width: 310px;
     }
     button{
-        height: 45px;
-        width: 45px;
+        height: 50px;
+        width: 50px;
         font-size: 18px;
     }
     top p{
