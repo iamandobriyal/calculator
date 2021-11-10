@@ -20,12 +20,10 @@ body.addEventListener('keypress',function(e){
     {
         if(e.key==operators[i])
         {
-            {
-                let len = (display.textContent).length;  
+            let len = (display.textContent).length;  
             let lastChar = (display.textContent).charAt(len-1);
             if(lastChar!="+" && lastChar!="/" && lastChar!="-" && lastChar!="*" && lastChar!="%")
-                display.textContent = display.textContent + operators[i];
-            }  
+            display.textContent = display.textContent + operators[i];
         }
     }
     for(let i=0; i<keys.length; i++)
