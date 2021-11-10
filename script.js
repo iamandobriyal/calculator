@@ -7,23 +7,81 @@ let display = document.querySelector('p');
 let output = document.querySelector('h1');
 let mode = document.querySelector('.mode');
 let img = document.querySelector('img');
+let operators = ["*","/","-","+","%"];
+let keys = ["1","2","3","4","5","6","7","8","9","0"];
+body.addEventListener('keypress',function(e){
+    if(e.key=="Enter") 
+    {
+        display.textContent = output.textContent;
+        output.textContent = "";
+
+    }
+    for(let i=0; i<operators.length; i++)
+    {
+        if(e.key==operators[i])
+        {
+            {
+                display.textContent = display.textContent + operators[i];
+            }  
+        }
+    }
+    for(let i=0; i<keys.length; i++)
+    {
+        if(e.key==keys[i])
+        {
+            display.textContent = display.textContent + keys[i];
+            output.textContent = eval(display.textContent);
+        }
+    }
+})
+body.onkeydown = function(e)
+{
+    var keyId = e.keyCode;
+    if(keyId == 8)
+    {
+        display.textContent = (display.textContent).slice(0,-1);
+        output.textContent = eval(display.textContent);
+    }
+}
+
 for(let i=0; i<buttons.length; i++)
 {
-    if(i!=0 && i!=1 && i!=18)
+    if(i!=0 && i!=1 && i!=18 && i!=2 && i!=3 && i!=7 && i!=11 && i!=15)
     buttons[i].addEventListener('click',function(){
-        if(i==7)
-        {
-            display.textContent = display.textContent+"*";
-            output.textContent = eval(display.textContent);
-        }
-        else{
             display.textContent = display.textContent+buttons[i].textContent
             output.textContent = eval(display.textContent);
-        }
-        
     });
 }
-console.log(buttons);
+
+for(let i=0; i<buttons.length; i++)
+{
+    if(i==2 || i==3 || i==11 || i==15)
+    {
+        buttons[i].addEventListener('click',function()
+        {
+            let len = (display.textContent).length;  
+            let lastChar = (display.textContent).charAt(len-1);
+            if(lastChar!="+" && lastChar!="/" && lastChar!="-" && lastChar!="*" && lastChar!="%")
+            {
+                display.textContent = display.textContent+buttons[i].textContent;
+            }
+            lastChar = 0;
+        })
+    }
+    else if(i==7)
+    {
+        buttons[i].addEventListener('click',function()
+        {
+            let len = (display.textContent).length;  
+            let lastChar = (display.textContent).charAt(len-1);
+            if(lastChar!="+" && lastChar!="/" && lastChar!="-" && lastChar!="*" && lastChar!="%")
+            {
+                display.textContent = display.textContent+"*";
+            }
+        })
+    }
+}
+
 buttons[0].addEventListener('click',function(){
     display.textContent = "";
     output.textContent = "";

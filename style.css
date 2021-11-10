@@ -32,9 +32,10 @@ top{
 }
 top p,h1{
     margin-right: 30px;
+    overflow-x: hidden;
 }
 top p{
-    margin-top: 40px;
+    margin-top:40px;
     font-size: 26px;
 }
 top h1{
@@ -94,6 +95,12 @@ button{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+button:first-child{
+    font-size: 18px;
+}
+button:nth-child(3){
+    font-size: 18px;
 }
 button:active{
     background-color: black;
